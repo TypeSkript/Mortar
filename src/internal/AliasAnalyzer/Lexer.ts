@@ -6,8 +6,6 @@ export default class Lexer {
     private script: string;
     private currentChar: string = '';
 
-    private static letters: string[] = [];
-
     constructor(syntax: string) {
         this.script = syntax;
         this.advance();
@@ -18,7 +16,7 @@ export default class Lexer {
         this.currentChar = this.script.charAt(this.currentPosition);
     }
 
-    static isLetter(char: string, countWhitespace: boolean = true): boolean {
+    static isText(char: string, countWhitespace: boolean = true): boolean {
         if (countWhitespace && (char === ' ' || char === '  ')) return true;
         return (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90 ||
         char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122);
@@ -59,10 +57,10 @@ export default class Lexer {
                 tokens.push(new Token(TokenType.PLURAL_SYMBOL));
             else if (this.currentChar == '|')
                 tokens.push(new Token(TokenType.OR));
-            else if (Lexer.isLetter(this.currentChar, false)) {
+            else if (Lexer.isText(this.currentChar, false)) {
                 let text = this.currentChar;
                 this.advance();
-                while (Lexer.isLetter(this.currentChar, true)) {
+                while (Lexer.isText(this.currentChar, true)) {
                     text += this.currentChar;
                     this.advance();
                 }
