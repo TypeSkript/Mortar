@@ -37,9 +37,9 @@ export default abstract class Literal<T> {
     getType = (): LiteralType => this.type;
 
     /**
-     * @method getValue Returns the value of the literal as it would be represented in Skript.
+     * @method getValue Generates the Skript equivalent code.
      */
-    abstract getValue(): string;
+    public abstract generate(): string;
 }
 
 export enum LiteralType {

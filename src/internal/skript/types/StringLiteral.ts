@@ -11,5 +11,5 @@ export default class StringLiteral extends Literal<string> {
         super(LiteralType.STRING, text);
     }
 
-    getValue = (): string => this.getRaw();
+    public generate = (): string => this.getRaw();
 }

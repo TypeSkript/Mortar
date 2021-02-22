@@ -11,5 +11,5 @@ export default class BooleanLiteral extends Literal<boolean> {
         super(LiteralType.BOOLEAN, bool);
     }
 
-    getValue = (): string => (this.getRaw()) ? 'true' : 'false';
+    public generate = (): string => (this.getRaw()) ? 'true' : 'false';
 }

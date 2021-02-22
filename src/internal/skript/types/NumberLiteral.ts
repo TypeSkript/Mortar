@@ -11,5 +11,5 @@ export default class NumberLiteral extends Literal<number> {
         super(LiteralType.NUMBER, num);
     }
 
-    getValue = (): string => this.getRaw().toString();
+    public generate = (): string => this.getRaw().toString();
 }
