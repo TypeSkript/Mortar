@@ -2,7 +2,7 @@ import Literal, { LiteralType } from "../lang/Literal";
 import SyntaxElement from "../lang/SyntaxElement";
 
 /**
- * String literal tye.
+ * String literal type.
  */
 export default class StringLiteral extends Literal<string> {
     /**
